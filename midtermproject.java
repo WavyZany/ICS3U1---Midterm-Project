@@ -121,7 +121,7 @@ public class midtermproject{
 	// Scene 3 - You are welcomed as a magic wielding MAGE Flaming Staff Animation
 
 	public static void scene3(Console con){
-		BufferedImage = imgScene3;
+		BufferedImage imgScene3;
 		imgScene3 = con.loadImage("BFSscene3.jpg");
 		
 		con.drawImage(imgScene3,0,0);
@@ -131,6 +131,4 @@ public class midtermproject{
 		
 		
 
-	}
-	
 } // "public class midtermproject" ENDING bracket
