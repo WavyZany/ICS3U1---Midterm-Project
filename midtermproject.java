@@ -48,6 +48,8 @@ public class midtermproject{
 			// Scene 4
 			
 			con.println("Good luck ARCHER "+strName);
+			
+			scene4(con);
 		}else{
 			// Scene 3
 			
@@ -76,7 +78,7 @@ public class midtermproject{
 		BufferedImage imgScene2;
 		imgScene2 = con.loadImage("BFSscene2.jpg");
 		
-		//con.repaint();
+		con.repaint();
 		
 		int intCounter;
 		// Code is glitching out for some reason
@@ -124,10 +126,50 @@ public class midtermproject{
 		BufferedImage imgScene3;
 		imgScene3 = con.loadImage("BFSscene3.jpg");
 		
-		con.drawImage(imgScene3,0,0);
+		int intCounter;
+		
+		for(intCounter = 0; intCounter < 300; intCounter++){
+			con.setDrawColor(new Color(36, 120, 199));
+			con.fillOval(250,intCounter,30,30);
+			con.drawImage(imgScene3,0,0);
+			con.repaint();
+		}
+		for(intCounter = 0; intCounter < 300; intCounter++){
+			con.setDrawColor(new Color(33, 117, 173));
+			con.fillOval(100,intCounter,30,30);
+			con.drawImage(imgScene3,0,0);
+			con.repaint();
+		}
+		for(intCounter = 0; intCounter < 300; intCounter++){
+			con.setDrawColor(new Color(126, 193, 237));
+			con.fillOval(400,intCounter,30,30);
+			con.drawImage(imgScene3,0,0);
+			con.repaint();
+		}
+		for(intCounter = 0; intCounter < 300; intCounter++){
+			con.setDrawColor(new Color(61, 150, 209));
+			con.fillOval(175,intCounter,30,30);
+			con.drawImage(imgScene3,0,0);
+			con.repaint();
+		}
+		for(intCounter = 0; intCounter < 300; intCounter++){
+			con.setDrawColor(new Color(14, 102, 161));
+			con.fillOval(275,intCounter,30,30);
+			con.drawImage(imgScene3,0,0);
+			con.repaint();
+		}
+
+
+	}
+	
+	// Scene 4 - You are welcomed as a bow-handling ARCHER Flaming Bow Animation
+	public static void scene4(Console con){
+		BufferedImage imgScene4;
+		imgScene4 = con.loadImage("BFSscene4.jpg");
+		
+		con.drawImage(imgScene4,-300,0);
 		con.repaint();
 	}
-		
 		
 		
 
