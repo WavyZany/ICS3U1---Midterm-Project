@@ -11,8 +11,8 @@ public class midtermproject{
 		
 		// Scene 1
 		
-		
-		scene1(con);
+		//scene1(con);
+		scene7(con);
 		
 		String strName;
 		String strInitial;
@@ -40,20 +40,23 @@ public class midtermproject{
 		if(strInitial.equals("a") || strInitial.equals("e") || strInitial.equals("i") || strInitial.equals("o") || strInitial.equals("u")){
 			// Scene 2
 			con.setTextColor(Color.BLACK);
-			con.println("Good luck WARRIOR "+strName);
+			con.println("SEARGEANT MILLAR: Good luck WARRIOR "+strName);
+			con.println("[Your SWORD glows with power]");
 			
 			scene2(con);
 
 		}else if(strInitial.equals(strInitial.toUpperCase())){
 			// Scene 4
 			
-			con.println("Good luck ARCHER "+strName);
+			con.println("SEARGEANT MILLAR: Good luck ARCHER "+strName);
+			con.println("[Your BOW glows with power]");
 			
 			scene4(con);
 		}else{
 			// Scene 3
 			
-			con.println("Good luck MAGE "+strName);
+			con.println("SEARGEANT MILLAR: Good luck MAGE "+strName);
+			con.println("[Your STAFF glows with power]");
 			
 			scene3(con);
 		}
@@ -81,7 +84,7 @@ public class midtermproject{
 		con.repaint();
 		
 		int intCounter;
-		// Code is glitching out for some reason
+		
 		for(intCounter = 500; intCounter > 200; intCounter--){
 			con.setDrawColor(new Color(133, 42, 42));
 			con.fillOval(250,intCounter,30,30);
@@ -118,6 +121,8 @@ public class midtermproject{
 			con.drawImage(imgScene2,0,0);
 			con.repaint();
 		}
+		
+		con.sleep(10000);
 	}
 		
 	// Scene 3 - You are welcomed as a magic wielding MAGE Flaming Staff Animation
@@ -158,6 +163,8 @@ public class midtermproject{
 			con.drawImage(imgScene3,0,0);
 			con.repaint();
 		}
+		
+		con.sleep(10000);
 
 
 	}
@@ -167,10 +174,101 @@ public class midtermproject{
 		BufferedImage imgScene4;
 		imgScene4 = con.loadImage("BFSscene4.jpg");
 		
-		con.drawImage(imgScene4,-300,0);
+		int intCounter;
+		
+		for(intCounter = 0; intCounter < 300; intCounter++){
+			con.setDrawColor(new Color(76, 140, 95));
+			con.fillOval(980,intCounter+200,30,30);
+			con.drawImage(imgScene4,-300,0);
+			con.repaint();
+		}
+		for(intCounter = 0; intCounter < 300; intCounter++){
+			con.setDrawColor(new Color(124, 222, 154));
+			con.fillOval(1100,intCounter+300,30,30);
+			con.drawImage(imgScene4,-300,0);
+			con.repaint();
+		}
+		for(intCounter = 0; intCounter < 300; intCounter++){
+			con.setDrawColor(new Color(3, 171, 54));
+			con.fillOval(1050,intCounter+450,30,30);
+			con.drawImage(imgScene4,-300,0);
+			con.repaint();
+		}
+		for(intCounter = 0; intCounter < 300; intCounter++){
+			con.setDrawColor(new Color(31, 194, 80));
+			con.fillOval(1150,intCounter+400,30,30);
+			con.drawImage(imgScene4,-300,0);
+			con.repaint();
+		}
+		for(intCounter = 0; intCounter < 300; intCounter++){
+			con.setDrawColor(new Color(52, 235, 107));
+			con.fillOval(1075,intCounter+370,30,30);
+			con.drawImage(imgScene4,-300,0);
+			con.repaint();
+		}
+		
+		con.sleep(10000);
+		
+	}
+	
+	// Scene 5 - A mythical fire breathing dragon appears. What do you do?
+	public static void scene5(Console con){
+		BufferedImage imgScene5;
+		imgScene5 = con.loadImage("BFSscene5.jpg");
+		
+		con.println("[A mythical fire breathing dragon appears]");
+		con.println("[Are you going to attack it?]");
+		
+		con.drawImage(imgScene5,0,0);
 		con.repaint();
 	}
+	
+	// Scene 6 - You have died. The monsters have taken over Cestearus
+	public static void scene6(Console con){
+		BufferedImage imgScene6;
+		imgScene6 = con.loadImage("BFSscene6.jpg");
 		
+		con.drawImage(imgScene6,-100,-200);
+		con.repaint();
+		
+		con.println("[You have died. The monsters have taken over Cestearus]");
+		
+		con.sleep(5000);
+		con.closeConsole();
+		
+	}
+	
+	// Scene 7 - You have slain the dragon. Congratulations!
+	public static void scene7(Console con){
+		
+		BufferedImage imgScene5;
+		imgScene5 = con.loadImage("BFSscene5.jpg");
+		
+		BufferedImage imgSlash;
+		imgSlash = con.loadImage("BFSslash.png");
+		
+		con.println("[You have slain the dragon. Congratulations!]");
+		
+		
+		con.drawImage(imgScene5,0,0);
+		con.repaint();
+		
+		con.sleep(3000);
+		
+		con.drawImage(imgSlash,900,200);
+		
+		con.sleep(10000);
+				
+	}
+	
+	// Scene 8 - A Towering Golem to slaughter you
+	public static void scene8(Console con){
+		BufferedImage imgScene8;
+		imgScene8 = con.loadImage("BFSscene8.jpg");
+		
+		con.println("[A Towering Golem wants to slaughter you]");
+		con.println("[What option do you choose?]");
+	}
 		
 
 } // "public class midtermproject" ENDING bracket
