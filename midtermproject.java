@@ -12,8 +12,7 @@ public class midtermproject{
 		// Scene 1
 		
 		//scene1(con);
-		scene7(con);
-		
+
 		String strName;
 		String strInitial;
 		
@@ -268,7 +267,47 @@ public class midtermproject{
 		
 		con.println("[A Towering Golem wants to slaughter you]");
 		con.println("[What option do you choose?]");
+		
+		con.drawImage(imgScene8,-400,0);
 	}
+	
+	// Scene 9 - Due to your cowardice, the king wants you to solve his math puzzle
+	public static void scene9(Console con){
+		BufferedImage imgScene9;
+		imgScene9 = con.loadImage("BFSscene9.jpg");
+		
+		con.println("[Due to your cowardice, the king wants you]");
+		con.println("[to solve his math puzzle]");
+		
+		con.drawImage(imgScene9,-400,-300);
+	}
+	
+	// Scene 11 - A phoenix appears looking ready to destroy you
+	public static void scene11(Console con){
+		BufferedImage imgScene11;
+		imgScene11 = con.loadImage("BFSscene11.jpg");
+		
+		con.println("[A phoenix appears looking ready to destroy you]");
+		
+		
+		con.drawImage(imgScene11,0,0);
+	}
+	// Scene 12 - Congratulations! You win and receive a lot of gold from the king
+	public static void scene12(Console con){
+		BufferedImage imgScene12;
+		imgScene12 = con.loadImage("BFSscene12.jpg");
+		
+		con.println("[Congratulations!]");
+		con.println("[You win and receive a lot of gold from the king]");
+		con.println("[THE END]");
+		
+		con.drawImage(imgScene12,-300,-425);
+		
+		con.sleep(15000);
+		con.closeConsole();
+	}
+	
+	
 		
 
 } // "public class midtermproject" ENDING bracket
