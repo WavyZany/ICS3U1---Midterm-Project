@@ -11,7 +11,7 @@ public class midtermproject{
 		
 		// Scene 1
 		
-		//scene1(con);
+		scene1(con);
 
 		String strName;
 		String strInitial;
@@ -43,6 +43,15 @@ public class midtermproject{
 			con.println("[Your SWORD glows with power]");
 			
 			scene2(con);
+			
+			// SPLIT
+			
+			scene5(con);
+			con.clear();
+			
+			scene8(con);
+			
+			
 
 		}else if(strInitial.equals(strInitial.toUpperCase())){
 			// Scene 4
@@ -122,6 +131,7 @@ public class midtermproject{
 		}
 		
 		con.sleep(10000);
+		con.clear();
 	}
 		
 	// Scene 3 - You are welcomed as a magic wielding MAGE Flaming Staff Animation
@@ -215,11 +225,31 @@ public class midtermproject{
 		BufferedImage imgScene5;
 		imgScene5 = con.loadImage("BFSscene5.jpg");
 		
+		int intChoice1;
+		
+		con.setTextColor(Color.WHITE);
+		
 		con.println("[A mythical fire breathing dragon appears]");
 		con.println("[Are you going to attack it?]");
+		con.println("[ATTACK - 1]");
+		con.println("[DO NOTHING - 2]");
 		
 		con.drawImage(imgScene5,0,0);
 		con.repaint();
+		
+		double startTime;
+		startTime = System.currentTimeMillis();
+		
+		intChoice1 = con.readInt();
+		double duration;
+		duration = System.currentTimeMillis() - startTime;
+		
+		if(intChoice1 >= 2 || duration > 10000){
+			scene6(con);
+		}else if(intChoice1 == 1){
+			scene7(con);
+		}		
+		
 	}
 	
 	// Scene 6 - You have died. The monsters have taken over Cestearus
@@ -252,8 +282,6 @@ public class midtermproject{
 		con.drawImage(imgScene5,0,0);
 		con.repaint();
 		
-		con.sleep(3000);
-		
 		con.drawImage(imgSlash,900,200);
 		
 		con.sleep(10000);
@@ -267,8 +295,35 @@ public class midtermproject{
 		
 		con.println("[A Towering Golem wants to slaughter you]");
 		con.println("[What option do you choose?]");
+		con.println("[RUN AWAY - 1]");
+		con.println("[ATTACK - 2]");
+		con.println("[TAME IT - 3]");
 		
 		con.drawImage(imgScene8,-400,0);
+		
+		int intChoice2;
+		
+		double startTime;
+		startTime = System.currentTimeMillis();
+		
+		intChoice2 = con.readInt();
+		double duration;
+		duration = System.currentTimeMillis() - startTime;
+		
+		if(duration > 10000){
+			scene6(con);
+		}else if(intChoice2 == 1){
+			int intRandom;
+			intRandom = (int)(Math.random()*100+1);
+			
+			con.println("[You have a 50% chance of running]");
+			if(intRandom > 50){
+				scene6(con);
+			}else if(intRandom <=50){
+				scene9(con);
+			}
+		}
+			
 	}
 	
 	// Scene 9 - Due to your cowardice, the king wants you to solve his math puzzle
@@ -280,6 +335,17 @@ public class midtermproject{
 		con.println("[to solve his math puzzle]");
 		
 		con.drawImage(imgScene9,-400,-300);
+	}
+	
+	// Scene 10 - Attack it 20 times to slay the Golem
+	public static void scene10(Console con){
+		BufferedImage imgScene8;
+		imgScene8 = con.loadImage("BFSscene8.jpg");
+		
+		con.println("[Attack the Golem 20 times]");
+		con.println("[to slay it]");
+		
+		con.drawImage(imgScene8,-400,0);
 	}
 	
 	// Scene 11 - A phoenix appears looking ready to destroy you
