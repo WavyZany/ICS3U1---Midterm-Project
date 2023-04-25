@@ -1,9 +1,19 @@
+// Battle For Survival
+// Zane Al-Hamwy
+// Version 1.7
+
+
 import arc.*;
 import java.awt.image.BufferedImage;
 import java.awt.Color;
 
-
-
+// Incorporated Wants:
+	// Have more than 3 scenes that use pictures
+	// Is able to just use a keyboard press (without having to press the enter key) to make a choice 
+	// Is able to use draw shapes in one of the scenes of the story (ovals, rectangles, etc)
+	// Is able to use a char variable in the code
+	// Uses more than 3 distinct pictures
+	// Uses a custom rgb colour in the code
 
 public class midtermproject{
 	public static void main(String[] args){
@@ -17,36 +27,37 @@ public class midtermproject{
 		String strInitial;
 		
 		con.println("SEARGEANT MILLAR: Here is a quick update young adventurer");
-		//con.sleep(5000);
+		con.sleep(5000);
 		con.clear();
 		con.println("SEARGEANT MILLAR: Mythical monsters from the universe Cestearus are attacking our clan");
-		//con.sleep(5000);
+		con.sleep(5000);
 		con.clear();
 		con.println("SEARGEANT MILLAR: It is up to YOU to destroy these monsters and bring peace");
-		//con.sleep(5000);
+		con.sleep(5000);
 		con.clear();
 		con.println("SEARGEANT MILLAR: Give me your name young traveler");
 		strName = con.readLine();
 		con.clear();
-		con.println(strName+" is a noble name");
-		//con.sleep(5000);
+		con.println("SEARGEANT MILLAR: "+strName+" is a noble name");
+		con.sleep(5000);
 		con.clear();
 		
 		strInitial = "";
 		strInitial = strInitial + strName.substring(0,1);
 		
-		
+		// Initial is a LOWER CASE + VOWEL
 		if(strInitial.equals("a") || strInitial.equals("e") || strInitial.equals("i") || strInitial.equals("o") || strInitial.equals("u")){
 			// Scene 2
 			con.setTextColor(Color.BLACK);
 			con.println("SEARGEANT MILLAR: Good luck WARRIOR "+strName);
 			con.println("[Your SWORD glows with power]");
 			
-			scene2(con);
+			//scene2(con);
 			
 			// SPLIT
 			
 			scene5(con);
+			
 			con.clear();
 			
 			scene8(con);
@@ -60,19 +71,33 @@ public class midtermproject{
 			con.println("[Your BOW glows with power]");
 			
 			scene4(con);
+			
+			// SPLIT
+			
+			scene5(con);
+			
+			con.clear();
+			
+			scene8(con);
 		}else{
 			// Scene 3
-			
+			con.setTextColor(Color.MAGENTA);
 			con.println("SEARGEANT MILLAR: Good luck MAGE "+strName);
 			con.println("[Your STAFF glows with power]");
 			
+			
 			scene3(con);
+			
+			//SPLIT
+			
+			scene5(con);
+			
+			con.clear();
+			
+			scene8(con);
 		}
 		
-		
-		
-		
-		
+			
 	} // "public static void main(String[] args)" ENDING bracket
 	
 	// Scene 1 - Sergeant Miller talks about the ongoing war against the mythical monsters of the universe Cestearus
@@ -130,7 +155,7 @@ public class midtermproject{
 			con.repaint();
 		}
 		
-		con.sleep(10000);
+		con.sleep(5000);
 		con.clear();
 	}
 		
@@ -173,7 +198,7 @@ public class midtermproject{
 			con.repaint();
 		}
 		
-		con.sleep(10000);
+		con.sleep(5000);
 
 
 	}
@@ -216,7 +241,7 @@ public class midtermproject{
 			con.repaint();
 		}
 		
-		con.sleep(10000);
+		con.sleep(5000);
 		
 	}
 	
@@ -284,7 +309,7 @@ public class midtermproject{
 		
 		con.drawImage(imgSlash,900,200);
 		
-		con.sleep(10000);
+		con.sleep(2000);
 				
 	}
 	
@@ -317,12 +342,30 @@ public class midtermproject{
 			intRandom = (int)(Math.random()*100+1);
 			
 			con.println("[You have a 50% chance of running]");
+			con.println("["+intRandom+"]");
+			con.sleep(500);
 			if(intRandom > 50){
 				scene6(con);
-			}else if(intRandom <=50){
+			}else if(intRandom < 51){
 				scene9(con);
 			}
+			
+		}else if(intChoice2 == 2){
+			scene10(con);
+		}else if(intChoice2 == 3){
+			con.println("[It is probably not a good idea]");
+			con.println("[to tame a Golem]");
+			con.println("[What do you name it?]");
+			
+			String strName2;
+			strName2 = con.readLine();
+			
+			con.println("[Wasn't a good idea]");
+			con.println("[Your Golem '"+strName2+"'kills you]");	
+			scene6(con);
+			
 		}
+		
 			
 	}
 	
@@ -331,12 +374,36 @@ public class midtermproject{
 		BufferedImage imgScene9;
 		imgScene9 = con.loadImage("BFSscene9.jpg");
 		
+		con.drawImage(imgScene9,-400,-300);
+		con.repaint();
+		
+		double dblChoice3;
+		
 		con.println("[Due to your cowardice, the king wants you]");
 		con.println("[to solve his math puzzle]");
+		con.sleep(1000);
+		con.println("[What is the perimeter, in centimeters]");
+		con.println("[of a triangular dagger's blade with]");
+		con.sleep(500);
+		// EQUATION - P = Side 1 + Side 2 + Side 3
+		con.println("[side lengths 7.4cm, 8.9cm and 9.2cm]");
+		con.println("[TYPE IN THE MAGNITUDE ONLY]");
 		
-		con.drawImage(imgScene9,-400,-300);
+		dblChoice3 = con.readDouble();
+		
+		if(dblChoice3 == 25.5){
+			con.clear();
+			con.println("[The king spares your for intelligence]");
+			con.println("[and sends you off again]");
+			con.sleep(1000);
+			
+			con.clear();
+			scene11(con);
+		}else{
+			scene6(con);
+		}
 	}
-	
+				
 	// Scene 10 - Attack it 20 times to slay the Golem
 	public static void scene10(Console con){
 		BufferedImage imgScene8;
@@ -344,8 +411,29 @@ public class midtermproject{
 		
 		con.println("[Attack the Golem 20 times]");
 		con.println("[to slay it]");
+		con.println("[PRESS 'X' TO ATTACK THE GOLEM]");
 		
 		con.drawImage(imgScene8,-400,0);
+		
+		char chrKey;
+		int intAttackCount;
+		intAttackCount = 0;
+		
+		
+		while(intAttackCount < 20){
+			chrKey = con.getChar();
+			if(chrKey == 'X' || chrKey == 'x'){
+				intAttackCount = intAttackCount + 1;
+				con.println("[Number of HITS: "+intAttackCount+"]");
+				}
+			
+				
+		}
+		con.println("[Well Done!]");
+		con.sleep(2000);
+		con.clear();
+		scene11(con);
+		
 	}
 	
 	// Scene 11 - A phoenix appears looking ready to destroy you
@@ -354,20 +442,65 @@ public class midtermproject{
 		imgScene11 = con.loadImage("BFSscene11.jpg");
 		
 		con.println("[A phoenix appears looking ready to destroy you]");
-		
-		
+		con.println("[What option do you choose?]");
 		con.drawImage(imgScene11,0,0);
+		con.sleep(2000);
+		con.println("[ATTACK - 1]");
+		con.println("[BRIBE IT WITH MONEY - 2]");
+		con.println("[THROW A ROCK AT IT BECAUSE FIRE/FLYING]");
+		con.println("[TYPES ARE WEAK TO ROCK MOVES - 3]");
+		
+		
+		int intChoice4;
+		
+		
+		double startTime;
+		startTime = System.currentTimeMillis();
+		
+		intChoice4 = con.readInt();
+		double duration;
+		duration = System.currentTimeMillis() - startTime;
+		
+		
+		
+		if(duration > 10000){
+			scene6(con);
+		}else if(intChoice4 == 1){
+			con.println("[You are burnt to a crisp]");
+			scene6(con);
+		}else if(intChoice4 == 2){
+			con.clear();
+			con.println("[Giving money to a phoenix probably]");
+			con.println("[won't do much]");
+			con.println("[How much money do you give it?]");
+			
+			double dblMoney;
+			dblMoney = con.readDouble();
+			con.clear();
+			con.println("[As generous as you are giving the phoenix]");
+			con.println("[a whole "+dblMoney+" dollars, it still kills you]");
+			
+			scene6(con);
+		}else if(intChoice4 == 3){
+			scene12(con);
+			
+		}
+		
+		
 	}
 	// Scene 12 - Congratulations! You win and receive a lot of gold from the king
 	public static void scene12(Console con){
 		BufferedImage imgScene12;
 		imgScene12 = con.loadImage("BFSscene12.jpg");
 		
+		con.drawImage(imgScene12,-300,-425);
+		con.repaint();
+		
+		con.println("[It was SUPER EFFECTIVE]");
 		con.println("[Congratulations!]");
 		con.println("[You win and receive a lot of gold from the king]");
 		con.println("[THE END]");
 		
-		con.drawImage(imgScene12,-300,-425);
 		
 		con.sleep(15000);
 		con.closeConsole();
