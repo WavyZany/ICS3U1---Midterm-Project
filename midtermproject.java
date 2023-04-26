@@ -45,14 +45,15 @@ public class midtermproject{
 		strInitial = "";
 		strInitial = strInitial + strName.substring(0,1);
 		
-		// Initial is a LOWER CASE + VOWEL
+		// Based on string manipulation of first initial, the user gets put into a class (Warrior, Mage, Archer)
+		// strInitial
 		if(strInitial.equals("a") || strInitial.equals("e") || strInitial.equals("i") || strInitial.equals("o") || strInitial.equals("u")){
 			// Scene 2
 			con.setTextColor(Color.BLACK);
 			con.println("SEARGEANT MILLAR: Good luck WARRIOR "+strName);
 			con.println("[Your SWORD glows with power]");
 			
-			//scene2(con);
+			scene2(con);
 			
 			// SPLIT
 			
@@ -118,17 +119,20 @@ public class midtermproject{
 		
 		int intCounter;
 		
+		// Flashing is INTENTIONAL to produce glow effect
 		for(intCounter = 500; intCounter > 200; intCounter--){
 			con.setDrawColor(new Color(133, 42, 42));
 			con.fillOval(250,intCounter,30,30);
 			con.drawImage(imgScene2,0,0);
 			con.repaint();
+			
 		}
 		for(intCounter = 500; intCounter > 200; intCounter--){	
 			con.setDrawColor(new Color(133, 42, 42));
 			con.fillOval(400,intCounter,30,30);
 			con.drawImage(imgScene2,0,0);
 			con.repaint();
+			
 		}
 		for(intCounter = 500; intCounter > 200; intCounter--){
 			con.setDrawColor(new Color(133, 42, 42));
@@ -160,7 +164,6 @@ public class midtermproject{
 	}
 		
 	// Scene 3 - You are welcomed as a magic wielding MAGE Flaming Staff Animation
-
 	public static void scene3(Console con){
 		BufferedImage imgScene3;
 		imgScene3 = con.loadImage("BFSscene3.jpg");
@@ -262,6 +265,7 @@ public class midtermproject{
 		con.drawImage(imgScene5,0,0);
 		con.repaint();
 		
+		// Timer System
 		double startTime;
 		startTime = System.currentTimeMillis();
 		
@@ -269,6 +273,8 @@ public class midtermproject{
 		double duration;
 		duration = System.currentTimeMillis() - startTime;
 		
+		// If input is 2 or more or time exceeds 10 seconds, you die. If it is 1 you proceed with the game
+		// intChoice1
 		if(intChoice1 >= 2 || duration > 10000){
 			scene6(con);
 		}else if(intChoice1 == 1){
@@ -335,6 +341,9 @@ public class midtermproject{
 		double duration;
 		duration = System.currentTimeMillis() - startTime;
 		
+		// If timer exceeds 10 seconds, you die.
+		// If you choose 1, the random integer needs to be less than 51 in order to proceed
+		// intChoice2
 		if(duration > 10000){
 			scene6(con);
 		}else if(intChoice2 == 1){
@@ -344,6 +353,8 @@ public class midtermproject{
 			con.println("[You have a 50% chance of running]");
 			con.println("["+intRandom+"]");
 			con.sleep(500);
+			// checks to see random integer's value and kills you if over 50
+			// intRandom
 			if(intRandom > 50){
 				scene6(con);
 			}else if(intRandom < 51){
@@ -379,6 +390,8 @@ public class midtermproject{
 		
 		double dblChoice3;
 		
+		con.setTextColor(Color.MAGENTA);
+		
 		con.println("[Due to your cowardice, the king wants you]");
 		con.println("[to solve his math puzzle]");
 		con.sleep(1000);
@@ -391,11 +404,13 @@ public class midtermproject{
 		
 		dblChoice3 = con.readDouble();
 		
+		// Math equation check. If it is right, you are spared, otherwise you die
+		// dblChoice3
 		if(dblChoice3 == 25.5){
 			con.clear();
 			con.println("[The king spares your for intelligence]");
 			con.println("[and sends you off again]");
-			con.sleep(1000);
+			con.sleep(4000);
 			
 			con.clear();
 			scene11(con);
@@ -415,14 +430,17 @@ public class midtermproject{
 		
 		con.drawImage(imgScene8,-400,0);
 		
-		char chrKey;
+		char chrAttack;
 		int intAttackCount;
 		intAttackCount = 0;
 		
-		
+		// Loops through the program which acts as a hit counter
+		// intAttackCount
 		while(intAttackCount < 20){
-			chrKey = con.getChar();
-			if(chrKey == 'X' || chrKey == 'x'){
+			chrAttack = con.getChar();
+			// If the input is x, a count is added, otherwise it keeps looping if input is not x
+			// chrAttack
+			if(chrAttack == 'X' || chrAttack == 'x'){
 				intAttackCount = intAttackCount + 1;
 				con.println("[Number of HITS: "+intAttackCount+"]");
 				}
@@ -462,7 +480,8 @@ public class midtermproject{
 		duration = System.currentTimeMillis() - startTime;
 		
 		
-		
+		// If input is 1, 2 or exceeds 10 seconds, it leads to death. If it is 3, you win
+		// intChoice4
 		if(duration > 10000){
 			scene6(con);
 		}else if(intChoice4 == 1){
@@ -499,6 +518,7 @@ public class midtermproject{
 		con.println("[It was SUPER EFFECTIVE]");
 		con.println("[Congratulations!]");
 		con.println("[You win and receive a lot of gold from the king]");
+		con.println("[You have saved Cestearus]");
 		con.println("[THE END]");
 		
 		
